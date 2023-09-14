@@ -1,9 +1,9 @@
 import './gallery.scss';
-import GalleryCollection from '../components/GalleryCollection';
+import GalleryCollection from '../../components/GalleryCollection';
 // import wedding from '../assets/wedding.jpg';
 // import wreath from "../assets/wreath.jpg";
 // import xmas from "../assets/xmas.jpg";
-import APIservice from '../services/APIservice';
+import APIservice from '../../services/APIservice';
 
 
 
