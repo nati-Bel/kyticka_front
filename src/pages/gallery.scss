@@ -1,0 +1,26 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.pgTitle{
+    font-size: 50px;
+    text-align: center;
+    font-weight:700;
+    color: $mainBrown;
+}
+.gBackground {
+    background-image:url(/src/assets/background.jpg);
+    opacity:0.9;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    
+}
+.gContainer{
+    @include flex ($wrap:wrap, $gap:20px, $align:center);
+    width: 100%;
+    margin: 20px 0;
+
+}
