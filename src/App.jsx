@@ -1,4 +1,4 @@
-import Gallery from "./pages/Gallery"
+import Router from "./router/Router"
 
 
 
@@ -6,7 +6,7 @@ const App = () => {
 
     return (
         <>
-        <Gallery/>
+        <Router/>
         </>
     )
 }
