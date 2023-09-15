@@ -1,19 +1,14 @@
-import { useState } from 'react'
-import { Dialog, Popover } from '@headlessui/react'
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
-import APIservice from '../../services/APIservice';
-import logo from '../../assets/logo.png';
-
-
+import { useState } from "react";
+import { Dialog, Popover } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import APIservice from "../services/APIservice";
+import logo from "../assets/logo.png";
 
 const AdminNav = () => {
-    const url = "http://127.0.0.1:8000/api/admin/galleries";
-    let galleries = APIservice(url);
-    console.log(galleries)
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const url = "http://127.0.0.1:8000/api/admin/galleries";
+  let galleries = APIservice(url);
+  console.log(galleries);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -125,10 +120,8 @@ const AdminNav = () => {
           </Dialog.Panel>
         </Dialog>
       </header>
-      
     </>
   );
-}
+};
 
-
-export default AdminNav
+export default AdminNav;
