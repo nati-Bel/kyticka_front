@@ -1,8 +1,8 @@
 import "./outlet.scss";
 import APIservice from "../../services/APIservice";
-import { Link } from "react-router-dom";
 
-const ItemListOutlet = () => {
+
+const PhotosOutlet = () => {
   const url = "http://127.0.0.1:8000/api/admin/photos";
   let photos = APIservice(url);
 
@@ -37,4 +37,4 @@ const ItemListOutlet = () => {
   );
 };
 
-export default ItemListOutlet;
+export default PhotosOutlet;
