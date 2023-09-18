@@ -1,5 +1,6 @@
 import "./outlet.scss";
 import APIservice from "../../services/APIservice";
+import ListBtn from "../../components/ListBtn";
 
 
 const PhotosOutlet = () => {
@@ -8,10 +9,6 @@ const PhotosOutlet = () => {
 
   return (
     <>
-      <div className="flex justify-center gap-x-6">
-        <button>Pridat foto</button>
-        <button>Pridat galeriu</button>
-      </div>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
           {photos &&
@@ -26,8 +23,9 @@ const PhotosOutlet = () => {
                     src={item.url}
                     alt=""
                   />
-                  <button>Upravit</button>
-                  <button>Vymazat</button>
+                  <p className="text-xs leading-5 text-gray-600">Galeria</p>
+                  <ListBtn btnContent="Upravit"></ListBtn>
+                  <ListBtn btnContent="Vymazat"></ListBtn>
                 </div>
               </li>
             ))}

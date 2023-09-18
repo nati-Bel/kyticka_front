@@ -1,6 +1,6 @@
 import "./outlet.scss";
 import APIservice from "../../services/APIservice";
-import { Link } from "react-router-dom";
+
 
 const GalleriesOutlet = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
@@ -8,10 +8,6 @@ const GalleriesOutlet = () => {
 
   return (
     <>
-      <div className="flex justify-center gap-x-6">
-        <button>Pridat foto</button>
-        <button>Pridat galeriu</button>
-      </div>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
           {galleries &&

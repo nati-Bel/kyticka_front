@@ -3,6 +3,7 @@ import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import APIservice from "../services/APIservice";
 import logo from "../assets/logo.png";
+import AdminBtn from "./AdminBtn";
 
 const AdminNav = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
@@ -20,7 +21,7 @@ const AdminNav = () => {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Kyticka admin</span>
-              <img className="h-8 w-auto" src={logo} alt="" />
+              <img className="h-12 w-auto" src={logo} alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -52,7 +53,12 @@ const AdminNav = () => {
             >
               Slider
             </a>
+            <div className="flex gap-x-3">
+              <AdminBtn btnContent="Nova fotka"></AdminBtn>
+              <AdminBtn btnContent="Nova galeria"></AdminBtn>
+            </div>
           </Popover.Group>
+
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
               href="#"
@@ -106,6 +112,20 @@ const AdminNav = () => {
                   >
                     Slider
                   </a>
+                </div>
+                <div className="flex flex-col gap-y-3">
+                  <button
+                    type="submit"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Nova fotka
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Nova galerie
+                  </button>
                 </div>
                 <div className="py-6">
                   <a

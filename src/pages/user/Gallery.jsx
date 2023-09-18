@@ -18,11 +18,12 @@ const Gallery = () => {
           <h2 className="pgTitle">Galéria</h2>
           <div className="gContainer">
             {galleries &&
-            galleries.data.map((gallery,index)=>{
-              return(<GalleryCollection
-              key={index}
-              gCollImg={gallery.cover_url}
-              gCollTitle={gallery.title}
+            galleries.data.map((gallery)=>{
+              return(
+              <GalleryCollection
+              key={gallery.id}
+              {...gallery}
+              
             ></GalleryCollection>
               )
             })}
