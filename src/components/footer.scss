@@ -1,6 +1,12 @@
 @import '../styles/mixins';
 @import '../styles/variables';
 
+
+.footerCont{
+    border: 0.2px solid white;
+    bottom:0
+    
+}
 .socialCont {
     @include flex($gap:14px)
 }

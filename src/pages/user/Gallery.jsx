@@ -1,5 +1,5 @@
 import './gallery.scss';
-import GalleryCollection from '../../components/GalleryCollection';
+import {GalleryCollection, NavbarDefault, Footer} from '../../components';
 // import wedding from '../assets/wedding.jpg';
 // import wreath from "../assets/wreath.jpg";
 // import xmas from "../assets/xmas.jpg";
@@ -14,7 +14,8 @@ export const Gallery = () => {
   console.log(galleries)
     return (
       <>
-        <section className="gBackground">
+      <NavbarDefault></NavbarDefault>
+      <section className="gBackground">
           <h2 className="pgTitle">Galéria</h2>
           <div className="gContainer">
             {galleries &&
@@ -31,6 +32,7 @@ export const Gallery = () => {
             
           </div>
         </section>
+        <Footer></Footer>
       </>
     );
 }
