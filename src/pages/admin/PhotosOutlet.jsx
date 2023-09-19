@@ -3,7 +3,7 @@ import APIservice from "../../services/APIservice";
 import ListBtn from "../../components/ListBtn";
 
 
-const PhotosOutlet = () => {
+export const PhotosOutlet = () => {
   const url = "http://127.0.0.1:8000/api/admin/photos";
   let photos = APIservice(url);
 
@@ -35,4 +35,4 @@ const PhotosOutlet = () => {
   );
 };
 
-export default PhotosOutlet;
+

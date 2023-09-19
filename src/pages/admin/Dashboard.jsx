@@ -1,7 +1,7 @@
 import AdminNav from "../../components/AdminNav";
 import { Outlet } from "react-router-dom";
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <>
     <AdminNav></AdminNav>
@@ -10,4 +10,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+

@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Miama';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Miama'), url('/src/styles/Miama.woff') format('woff');
+    }
+
 
 
 

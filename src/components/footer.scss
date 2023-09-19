@@ -1,0 +1,40 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.socialCont {
+    @include flex($gap:14px)
+}
+
+.copyIcon{
+    height:auto;
+    width:15px;
+}
+
+.copyCont {
+    @include flex($gap:4px)
+
+}
+
+.socialIcon{
+    height:auto;
+    width:25px;
+}
+
+.footerList {
+    bottom:0;
+    width:100%;
+    background-color: $lightBrown;
+    padding:10px;
+    text-align: center;
+    line-height: 25px;
+    font-family: poppins;
+    color:$mainBrown;
+    font-weight: 600;
+    font-size:12px;
+}
+
+.copyTitle {
+    font-weight: 800;
+    letter-spacing: 4px;
+    font-size: 18px;
+}

@@ -1,5 +1,5 @@
 @import '../styles/mixins';
-@import '../styles/mixins';
+@import '../styles/variables';
 
 .gCollContainer{
     @include flex($direction:column, $justify:space-between, $gap:10px);
