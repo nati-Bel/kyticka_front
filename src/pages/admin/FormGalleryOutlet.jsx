@@ -1,7 +1,7 @@
 import "./outlet.scss";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-const FormGalleryOutlet = () => {
+export const FormGalleryOutlet = () => {
   return (
     <div className="flex justify-center">
       <form className="form">
@@ -84,4 +84,4 @@ const FormGalleryOutlet = () => {
   );
 };
 
-export default FormGalleryOutlet;
+

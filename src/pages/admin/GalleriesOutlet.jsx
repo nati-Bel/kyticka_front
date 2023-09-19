@@ -2,7 +2,7 @@ import "./outlet.scss";
 import APIservice from "../../services/APIservice";
 
 
-const GalleriesOutlet = () => {
+export const GalleriesOutlet = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
   let galleries = APIservice(url);
 
@@ -38,4 +38,4 @@ const GalleriesOutlet = () => {
   );
 };
 
-export default GalleriesOutlet;
+

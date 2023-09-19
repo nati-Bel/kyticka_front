@@ -4,7 +4,7 @@ import { useState } from "react";
 import fileUpload from "../../helpers/fileUpload";
 
 
-const FormPhotoOutlet = () => {
+export const FormPhotoOutlet = () => {
   const [selectedFile, setSelectedFile] = useState(null); // Estado para almacenar el archivo seleccionado
 
   const onFileInputChange = ({ target }) => {
@@ -147,4 +147,4 @@ const FormPhotoOutlet = () => {
   );
 };
 
-export default FormPhotoOutlet
+

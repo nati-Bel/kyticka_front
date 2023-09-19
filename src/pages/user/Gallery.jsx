@@ -7,7 +7,7 @@ import APIservice from '../../services/APIservice';
 
 
 
-const Gallery = () => {
+export const Gallery = () => {
 
   const url = "http://127.0.0.1:8000/api/admin/galleries";
   let galleries = APIservice(url);
@@ -34,4 +34,3 @@ const Gallery = () => {
       </>
     );
 }
-export default Gallery
