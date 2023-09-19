@@ -14,7 +14,7 @@
 
 .logo {
     
-    position:fixed;
+    position:absolute;
     display:flex;
     flex-direction: column;
     height: 230px;
@@ -24,7 +24,7 @@
 }
 
 .welcomeTitle {
-position:fixed;
+position:absolute;
 font-size: 130px;
 font-family: Miama;
 right: 90px;

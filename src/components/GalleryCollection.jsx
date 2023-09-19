@@ -1,16 +1,18 @@
 import './galleryCollection.scss';
+import { Link } from 'react-router-dom';
 
 
-const GalleryCollection = (props) => {
+export const GalleryCollection = (props) => {
 
     return (
-        <>
-        <div className="gCollContainer">
+      <>
+        <Link to="/galeria{id}">
+          <div className="gCollContainer">
             <img src={props.cover_url} className="gCollImg"></img>
             <h3 className="gCollTitle">{props.title}</h3>
-        </div>
-        </>
-    )
+          </div>
+        </Link>
+      </>
+    );
 
 }
-export default GalleryCollection
