@@ -1,31 +1,30 @@
 import "./outlet.scss";
-import APIservice from "../../services/APIservice";
+import { useState, useEffect } from "react";
 import axios from "axios";
-//import { useState, useEffect } from "react";
-
-
 
 export const GalleriesOutlet = () => {
-  
+  const apiUrl = "http://127.0.0.1:8000/api/admin/galleries";
+  const [galleries, setGalleries] = useState([]);
 
-  //const [galleries, setGalleries] = useState(null)
-  const url = "http://127.0.0.1:8000/api/admin/galleries";
-  const galleries = APIservice(url);
-  
-  //setGalleries(galleriesData);
-  
-  
+  useEffect(() => {
+    loadGalleries();
+  }, []);
 
-  
-  const onDelete = async (id) => {
-    console.log(id)
+  const loadGalleries = async () => {
     try {
-      const response = await axios.delete(`${url}/${id}`);
+      const response = await axios.get(apiUrl);
+      setGalleries(response.data);
+    } catch (error) {
+      console.error("Error al obtener las galerías:", error);
+    }
+  };
+
+  const onDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${apiUrl}/${id}`);
 
       if (response.status === 200) {
-        console.log('Exito');
-        location.reload();
-        
+        await loadGalleries();
       } else {
         console.error("Error al eliminar la galería");
       }
@@ -38,7 +37,7 @@ export const GalleriesOutlet = () => {
     <>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
-          {galleries &&
+          {galleries.data && 
             galleries.data.map((item) => (
               <li
                 key={item.id}
