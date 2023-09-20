@@ -3,7 +3,7 @@ import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import APIservice from "../services/APIservice";
 import logo from "../assets/logo.png";
-import AdminBtn from "./AdminBtn";
+import { Link } from "react-router-dom";
 
 const AdminNav = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
@@ -35,28 +35,36 @@ const AdminNav = () => {
             </button>
           </div>
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
-            <a
-              href="http://localhost:5173/admin/dashboard/"
+            <Link
+              to="/admin/dashboard/"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Vsetky Fotky
-            </a>
-            <a
-              href="http://localhost:5173/admin/dashboard/galerie"
+            </Link>
+            <Link
+              to="/admin/dashboard/galerie"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Moje Galerie
-            </a>
+            </Link>
             <a
               href="http://localhost:5173/admin/dashboard/galerie"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Slider
-            </a>
-            <div className="flex gap-x-3">
-              <AdminBtn btnContent="Nova fotka"></AdminBtn>
-              <AdminBtn btnContent="Nova galeria"></AdminBtn>
-            </div>
+            </a>            
+              <Link
+                to="/admin/dashboard/newphoto"
+                className="text-sm font-semibold italic leading-6 text-gray-500"
+              >
+                Pridat fotku
+              </Link>
+              <Link
+                to="/admin/dashboard/newgallery"
+                className="text-sm font-semibold italic leading-6 text-gray-500"
+              >
+                Pridat album
+              </Link>            
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -94,44 +102,39 @@ const AdminNav = () => {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  <a
-                    href="#"
+                  <Link
+                    to="admin/dashboard/"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Moje fotky
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="admin/dashboard/galerie"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Moje galerie
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Slider
-                  </a>
+                  </Link>
                 </div>
-                <div className="flex flex-col gap-y-3">
-                  <button
-                    type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    Nova fotka
-                  </button>
-                  <button
-                    type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    Nova galerie
-                  </button>
-                </div>
+                <Link
+                  to="/admin/dashboard/newphoto"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Pridat fotku
+                </Link>
+                <Link
+                  to="/admin/dashboard/newgallery"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Pridat galeriu
+                </Link>
                 <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
+                  <a className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Odhlasit sa
                   </a>
                 </div>

@@ -2,9 +2,12 @@ import "./outlet.scss";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import fileUpload from "../../helpers/fileUpload";
+import APIservice from "../../services/APIservice";
 
 
 export const FormPhotoOutlet = () => {
+  const url = "http://127.0.0.1:8000/api/admin/galleries";
+  let galleries = APIservice(url);
   const [selectedFile, setSelectedFile] = useState(null); // Estado para almacenar el archivo seleccionado
 
   const onFileInputChange = ({ target }) => {
@@ -37,7 +40,7 @@ export const FormPhotoOutlet = () => {
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      className="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                     >
                       <span>Upload a file</span>
                       <input
@@ -68,6 +71,7 @@ export const FormPhotoOutlet = () => {
                 Galeria
               </label>
               <div className="mt-2">
+                
                 <select
                   id="gallery_id"
                   name="gallery_id"
@@ -76,6 +80,7 @@ export const FormPhotoOutlet = () => {
                   <option>Svadobne</option>
                   
                 </select>
+              )})}
               </div>
             </div>
 
