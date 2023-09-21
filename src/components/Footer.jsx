@@ -15,7 +15,7 @@ export const Footer = () => {
                     <span className="copyTitle">KYTICKA</span>
                 </li>
                 <li>Hviezdoslavova 130, STUPAVA | 0912 273 517 | kystudio@gmail.com</li>
-                <li className="socialCont">
+                <li className="fsocialCont">
                     <img className="socialIcon" src={fb}></img>
                     <img className="socialIcon" src={insta}></img>
                     <img className="socialIcon" src={email}></img>

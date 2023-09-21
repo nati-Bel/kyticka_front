@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, Login, Dashboard } from "../pages/admin";
-import { Home, Gallery, Album } from "../pages/user";
+import { Home, Gallery, Album, Contact } from "../pages/user";
 
 
 
@@ -13,6 +13,7 @@ const Router = () => {
             <Route path="/" element={<Home/>}></Route>
             <Route path="/galeria" element={<Gallery />}></Route>
             <Route path='/galeria/:id' element={<Album/>}></Route>
+            <Route path='/kontakt' element={<Contact/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/admin/dashboard" element={<Dashboard />}>
               <Route path="/admin/dashboard" element={<PhotosOutlet />}></Route>
