@@ -42,7 +42,7 @@ const AdminNav = () => {
               Vsetky Fotky
             </Link>
             <Link
-              to="/admin/dashboard/galerie"
+              to="/admin/dashboard/albums"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Moje Galerie
@@ -60,7 +60,7 @@ const AdminNav = () => {
                 Pridat fotku
               </Link>
               <Link
-                to="/admin/dashboard/newgallery"
+                to="/admin/dashboard/newalbum"
                 className="text-sm font-semibold italic leading-6 text-gray-500"
               >
                 Pridat album
@@ -109,7 +109,7 @@ const AdminNav = () => {
                     Moje fotky
                   </Link>
                   <Link
-                    to="admin/dashboard/galerie"
+                    to="admin/dashboard/albums"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Moje galerie
@@ -128,7 +128,7 @@ const AdminNav = () => {
                   Pridat fotku
                 </Link>
                 <Link
-                  to="/admin/dashboard/newgallery"
+                  to="/admin/dashboard/newalbum"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Pridat galeriu

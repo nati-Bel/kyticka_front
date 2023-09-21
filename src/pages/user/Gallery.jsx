@@ -1,9 +1,10 @@
 import './gallery.scss';
-import {GalleryCollection, NavbarDefault, Footer} from '../../components';
+import {AlbumCard, NavbarDefault, Footer} from '../../components';
 // import wedding from '../assets/wedding.jpg';
 // import wreath from "../assets/wreath.jpg";
 // import xmas from "../assets/xmas.jpg";
 import APIservice from '../../services/APIservice';
+//import { Link } from 'react-router-dom';
 
 
 
@@ -20,13 +21,11 @@ export const Gallery = () => {
           <div className="gContainer">
             {galleries &&
             galleries.data.map((gallery)=>{
-              return(
-              <GalleryCollection
-              key={gallery.id}
-              {...gallery}
-              
-            ></GalleryCollection>
-              )
+              return (
+                    <AlbumCard key={gallery.id} id={gallery.id}{...gallery}>
+
+                    </AlbumCard>
+              );
             })}
             
             

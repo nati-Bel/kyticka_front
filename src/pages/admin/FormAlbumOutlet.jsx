@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 //import fileUpload from "../../helpers/fileUpload";
 
 
-export const FormGalleryOutlet = () => {
+export const FormAlbumOutlet = () => {
 
   const [title, setTitle] = useState("");
   //const [cover_url, setCover_url] = useState("")
@@ -130,7 +130,7 @@ export const FormGalleryOutlet = () => {
       </form>
       {isLoading && <p>Loading ...</p>}
       {error && <p>Error: {error}</p>}
-      {!isLoading && data && <p> Nova galeria uspesne vytvorena </p>}
+      {!isLoading && data && <p> Novy album uspesne vytvoreny </p>}
     </div>
   );
 };
