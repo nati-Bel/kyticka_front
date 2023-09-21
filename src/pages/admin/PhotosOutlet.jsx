@@ -35,17 +35,15 @@ export const PhotosOutlet = () => {
               >
                 <div className="flex min-w-0 gap-x-9">
                   <img
-                    className="h-12 w-12 flex-none bg-gray-50"
+                    className="h-12 w-12 flex-none bg-brown-50"
                     src={item.url}
                     alt=""
                   />
-                  <p className="text-xs leading-5 text-gray-600">
+                  <p className="place-self-center italic text-brown-600">
                     {item.gallery}
                   </p>
-                  <button>Upravit</button>
-                  <button
-                    onClick={() => onDelete(item.id)}
-                  >Vymazat</button>
+                  <button className="listBtn">Upravit</button>
+                  <button className="listBtn" onClick={() => onDelete(item.id)}>Vymazat</button>
                 </div>
               </li>
             ))}

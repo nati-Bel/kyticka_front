@@ -18,7 +18,7 @@
             src={logo}
             alt="Your Company"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-amber-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-brown-900">
             Prihlásit sa ako admin
           </h2>
         </div>
@@ -26,7 +26,7 @@
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-amber-900">
+              <label htmlFor="email" className="block text-sm font-medium leading-6 text-brown-900">
                 Email
               </label>
               <div className="mt-2">
@@ -43,11 +43,11 @@
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-amber-900">
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-brown-900">
                   Heslo
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-amber-600 hover:text-amber-500">
+                  <a href="#" className="font-semibold text-brown-600 hover:text-brown-500">
                     Zabudla si heslo?
                   </a>
                 </div>
@@ -67,7 +67,7 @@
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+                className="flex w-full justify-center rounded-md bg-brown-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
               >
                 Sign in
               </button>
