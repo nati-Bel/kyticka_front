@@ -1,7 +1,7 @@
 @import '../styles/mixins';
 @import '../styles/variables';
 
-.gCollContainer{
+.aCardContainer{
     @include flex($direction:column, $justify:space-between, $gap:10px);
     width:154px;
     height:180px;
@@ -13,11 +13,11 @@
     
 }
 
-.gCollContainer:hover{
+.aCardContainer:hover{
     opacity:1;
 }
 
-.gCollImg{
+.aCardImg{
     max-width:100%;
     min-height:120px;
     max-height:150px;
@@ -26,7 +26,7 @@
 
 }
 
-.gCollTitle{
+.aCardTitle{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size:18px;

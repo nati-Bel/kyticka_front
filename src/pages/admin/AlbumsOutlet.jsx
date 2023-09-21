@@ -2,18 +2,18 @@ import "./outlet.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const GalleriesOutlet = () => {
+export const AlbumsOutlet = () => {
   const apiUrl = "http://127.0.0.1:8000/api/admin/galleries";
-  const [galleries, setGalleries] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    loadGalleries();
+    loadAlbums();
   }, []);
 
-  const loadGalleries = async () => {
+  const loadAlbums = async () => {
     try {
       const response = await axios.get(apiUrl);
-      setGalleries(response.data);
+      setAlbums(response.data);
     } catch (error) {
       console.error("Error al obtener las galerías:", error);
     }
@@ -24,7 +24,7 @@ export const GalleriesOutlet = () => {
       const response = await axios.delete(`${apiUrl}/${id}`);
 
       if (response.status === 200) {
-        await loadGalleries();
+        await loadAlbums();
       } else {
         console.error("Error al eliminar la galería");
       }
@@ -37,26 +37,26 @@ export const GalleriesOutlet = () => {
     <>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
-          {galleries.data && 
-            galleries.data.map((item) => (
+          {albums.data && 
+            albums.data.map((album) => (
               <li
-                key={item.id}
+                key={album.id}
                 className="flex justify-between gap-x-6 py-5 flex-wrap"
               >
                 <div className="flex min-w-0 gap-x-9">
                   <img
                     className="h-12 w-12 flex-none bg-gray-50"
-                    src={item.cover_url}
+                    src={album.cover_url}
                     alt=""
                   />
                   <div className="min-w-0 flex-auto">
                     <p className="text-sm font-semibold leading-6 text-gray-900">
-                      {item.title}
+                      {album.title}
                     </p>
                   </div>
                 </div>
                 <button>Upravit</button>
-                <button onClick={() => onDelete(item.id)}>Vymazat</button>
+                <button onClick={() => onDelete(album.id)}>Vymazat</button>
               </li>
             ))}
         </ul>
