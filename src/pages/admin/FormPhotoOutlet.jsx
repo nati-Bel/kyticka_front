@@ -1,28 +1,40 @@
 import "./outlet.scss";
 import { PhotoIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import fileUpload from "../../helpers/fileUpload";
-import APIservice from "../../services/APIservice";
-
+import axios from "axios";
+//import useHttp from "../../hooks/useHttp";
 
 export const FormPhotoOutlet = () => {
-  const url = "http://127.0.0.1:8000/api/admin/galleries";
-  let galleries = APIservice(url);
-  const [selectedFile, setSelectedFile] = useState(null); // Estado para almacenar el archivo seleccionado
+  const apiUrl = "http://127.0.0.1:8000/api/admin/galleries";
+  const [galleries, setGalleries] = useState([]);
 
+  useEffect(() => {
+    loadGalleries();
+  }, []);
+
+  const loadGalleries = async () => {
+    try {
+      const response = await axios.get(apiUrl);
+      setGalleries(response.data);
+    } catch (error) {
+      console.error("Error al obtener las galerías:", error);
+    }
+  };
+
+  const [selectedFile, setSelectedFile] = useState(null); // Estado para almacenar el archivo seleccionado
   const onFileInputChange = ({ target }) => {
-    // Obtiene el archivo seleccionado por el usuario
     const file = target.files[0];
     setSelectedFile(file);
   };
-
   const handleFileUpload = () => {
     if (selectedFile) {
-      // Llama a la función para cargar el archivo
-      
     fileUpload(selectedFile);
-    
   }};
+
+ //const [url, setUrl] = useState("");
+ //const [galerry, setGallery] = useState("");
+
   
 
   return (
@@ -56,7 +68,14 @@ export const FormPhotoOutlet = () => {
                   </div>
                   <p className="text-xs leading-5 text-gray-600">
                     PNG, JPG, GIF up to 10MB
-                  </p>                  
+                  </p>
+                  <button
+                    type="button" // Cambia a type "button" para evitar envío de formulario
+                    onClick={handleFileUpload} // Llama a la función de carga de archivo al hacer clic en "Upload"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Upload
+                  </button>
                 </div>
               </div>
             </div>
@@ -71,16 +90,21 @@ export const FormPhotoOutlet = () => {
                 Galeria
               </label>
               <div className="mt-2">
-                
                 <select
                   id="gallery_id"
                   name="gallery_id"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                  <option>Svadobne</option>
-                  
+                  {galleries.data &&
+                    galleries.data.map((gallery) => {
+                      return (
+                        <option key={gallery.id} value={gallery.id}>
+                          {gallery.title}
+                        </option>
+                      );
+                    })}
                 </select>
-              )})}
+            
               </div>
             </div>
 
@@ -119,13 +143,13 @@ export const FormPhotoOutlet = () => {
                     />
                   </div>
                   <div className="text-sm leading-6">
-                      <label
-                        htmlFor="slider"
-                        className="font-medium text-gray-900"
-                      >
-                        Include photo in the slider
-                      </label>
-                    </div> 
+                    <label
+                      htmlFor="slider"
+                      className="font-medium text-gray-900"
+                    >
+                      Include photo in the slider
+                    </label>
+                  </div>
                 </div>
               </div>
             </fieldset>
@@ -141,10 +165,10 @@ export const FormPhotoOutlet = () => {
           </button>
           <button
             type="button" // Cambia a type "button" para evitar envío de formulario
-            onClick={handleFileUpload} // Llama a la función de carga de archivo al hacer clic en "Upload"
+            //onClick={} // Llama a la función de carga de archivo al hacer clic en "Upload"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Upload
+            Crear album
           </button>
         </div>
       </form>
