@@ -1,19 +1,46 @@
 import "./outlet.scss";
-import APIservice from "../../services/APIservice";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const GalleriesOutlet = () => {
-  const url = "http://127.0.0.1:8000/api/admin/galleries";
-  let galleries = APIservice(url);
+  const apiUrl = "http://127.0.0.1:8000/api/admin/galleries";
+  const [galleries, setGalleries] = useState([]);
+
+  useEffect(() => {
+    loadGalleries();
+  }, []);
+
+  const loadGalleries = async () => {
+    try {
+      const response = await axios.get(apiUrl);
+      setGalleries(response.data);
+    } catch (error) {
+      console.error("Error al obtener las galerías:", error);
+    }
+  };
+
+  const onDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${apiUrl}/${id}`);
+
+      if (response.status === 200) {
+        await loadGalleries();
+      } else {
+        console.error("Error al eliminar la galería");
+      }
+    } catch (error) {
+      console.error("Error al eliminar la galería:", error);
+    }
+  };
 
   return (
     <>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
-          {galleries &&
-            galleries.data.map((item, index) => (
+          {galleries.data && 
+            galleries.data.map((item) => (
               <li
-                key={index}
+                key={item.id}
                 className="flex justify-between gap-x-6 py-5 flex-wrap"
               >
                 <div className="flex min-w-0 gap-x-9">
@@ -29,7 +56,7 @@ export const GalleriesOutlet = () => {
                   </div>
                 </div>
                 <button>Upravit</button>
-                <button>Vymazat</button>
+                <button onClick={() => onDelete(item.id)}>Vymazat</button>
               </li>
             ))}
         </ul>
