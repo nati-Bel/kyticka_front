@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import APIservice from "../services/APIservice";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminNav = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
@@ -11,9 +11,32 @@ const AdminNav = () => {
   console.log(galleries);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [authToken, setAuthToken] = useState(null);
+  const navigateTo = useNavigate();
+  useEffect(() => {
+    const storedAuthToken = localStorage.getItem("authToken");
+    if (storedAuthToken) {
+      setIsLoggedIn(true);
+      setAuthToken(storedAuthToken);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    document.cookie =
+      "authToken=; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;";
+    setAuthToken(null);
+    navigateTo("/");
+    setIsLoggedIn(false);
+    console.log("Usuario deslogueado");
+  };
+
   return (
     <>
-      <header className="bg-white">
+      <header className="bg-gray-200">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -37,43 +60,43 @@ const AdminNav = () => {
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
             <Link
               to="/admin/dashboard/"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-base font-semibold leading-6 text-gray-900"
             >
               Vsetky Fotky
             </Link>
             <Link
               to="/admin/dashboard/albums"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-base font-semibold leading-6 text-gray-900"
             >
               Moje Galerie
             </Link>
             <a
               href="http://localhost:5173/admin/dashboard/galerie"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-base font-semibold leading-6 text-gray-900"
             >
               Slider
             </a>            
               <Link
                 to="/admin/dashboard/newphoto"
-                className="text-sm font-semibold italic leading-6 text-gray-500"
+                className="text-base font-semibold italic leading-6 text-gray-500"
               >
                 Pridat fotku
               </Link>
               <Link
                 to="/admin/dashboard/newalbum"
-                className="text-sm font-semibold italic leading-6 text-gray-500"
+                className="text-base font-semibold italic leading-6 text-gray-500"
               >
                 Pridat album
               </Link>            
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
+            {isLoggedIn&&(
+            <button onClick={handleLogout}
+              className="text-base font-semibold leading-6 text-gray-900"
             >
               Odhlasit sa <span aria-hidden="true">&rarr;</span>
-            </a>
+            </button>)}
           </div>
         </nav>
 

@@ -36,7 +36,7 @@ export const AlbumsOutlet = () => {
   return (
     <>
       <div className="listContainer flex align-center justify-center">
-        <ul role="list" className="divide-y divide-gray-100">
+        <ul role="list" className="divide-y divide-brown-100">
           {albums.data && 
             albums.data.map((album) => (
               <li
@@ -50,13 +50,13 @@ export const AlbumsOutlet = () => {
                     alt=""
                   />
                   <div className="min-w-0 flex-auto">
-                    <p className="text-sm font-semibold leading-6 text-gray-900">
+                    <p className="italic leading-6 text-brown-900">
                       {album.title}
                     </p>
                   </div>
                 </div>
-                <button>Upravit</button>
-                <button onClick={() => onDelete(album.id)}>Vymazat</button>
+                <button className="listBtn">Upravit</button>
+                <button className="listBtn" onClick={() => onDelete(album.id)}>Vymazat</button>
               </li>
             ))}
         </ul>

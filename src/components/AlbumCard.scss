@@ -2,10 +2,9 @@
 @import '../styles/variables';
 
 .aCardContainer{
-    @include flex($direction:column, $justify:space-between, $gap:10px);
-    width:154px;
-    height:180px;
-    
+    @include flex($direction:column, $justify:space-around, $gap:10px);
+    width:270px;
+    height:300px;
     padding: 5px;
     border-radius: 5px;
     background-color:#ffffff;
@@ -19,7 +18,7 @@
 
 .aCardImg{
     max-width:100%;
-    min-height:120px;
+    min-height:170px;
     max-height:150px;
     border-radius:5px;
     opacity:1;
@@ -28,7 +27,18 @@
 
 .aCardTitle{
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size:18px;
+    font-weight: 800;
+    font-size:30px;
     justify-self:baseline;
 }
+
+// .aCardContainer{
+//     @include flex($direction:column, $justify:space-between, $gap:10px);
+//     width:154px;
+//     height:180px;
+//     padding: 5px;
+//     border-radius: 5px;
+//     background-color:#ffffff;
+//     opacity:0.7;
+    
+// }

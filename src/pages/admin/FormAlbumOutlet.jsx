@@ -63,7 +63,7 @@ export const FormAlbumOutlet = () => {
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      className="relative cursor-pointer rounded-md font-semibold text-brown-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-brown-600 focus-within:ring-offset-2 hover:text-brown-500"
                     >
                       <span>Choose a file</span>
                       <input
@@ -82,7 +82,7 @@ export const FormAlbumOutlet = () => {
                   <button
                     type="button" // Cambia a type "button" para evitar envío de formulario
                     //onClick={handleFileUpload} // Llama a la función de carga de archivo al hacer clic en "Upload"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-brown-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Upload
                   </button>
@@ -97,7 +97,7 @@ export const FormAlbumOutlet = () => {
                 htmlFor="street-address"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Gallery title
+                Album title
               </label>
               <div className="mt-2">
                 <input
@@ -122,7 +122,7 @@ export const FormAlbumOutlet = () => {
           </button>
           <button
             type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-brown-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Crear album
           </button>
