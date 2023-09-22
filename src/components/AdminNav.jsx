@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import APIservice from "../services/APIservice";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminNav = () => {
   const url = "http://127.0.0.1:8000/api/admin/galleries";
   let galleries = APIservice(url);
   console.log(galleries);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [authToken, setAuthToken] = useState(null);
+  const navigateTo = useNavigate();
+  useEffect(() => {
+    const storedAuthToken = localStorage.getItem("authToken");
+    if (storedAuthToken) {
+      setIsLoggedIn(true);
+      setAuthToken(storedAuthToken);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    document.cookie =
+      "authToken=; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/;";
+    setAuthToken(null);
+    navigateTo("/");
+    setIsLoggedIn(false);
+    console.log("Usuario deslogueado");
+  };
 
   return (
     <>
@@ -68,12 +91,12 @@ const AdminNav = () => {
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="#"
+            {isLoggedIn&&(
+            <button onClick={handleLogout}
               className="text-base font-semibold leading-6 text-gray-900"
             >
               Odhlasit sa <span aria-hidden="true">&rarr;</span>
-            </a>
+            </button>)}
           </div>
         </nav>
 
