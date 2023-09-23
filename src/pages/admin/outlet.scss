@@ -8,9 +8,25 @@
 
 .listBtn {
     font-size: 16px;
-    //background-color:bisque;
     border-radius: 14px;
     padding: 1px 12px;
     color:$mainBrown;
     font-weight: 700;
 }
+
+
+.formTitle {
+    text-align: center;
+    margin:8px;
+    font-size: 25px;
+    color:$mainBrown;
+    font-weight: 700;
+    font-family: poppins;
+}
+
+.label{
+    color:$mainBrown;
+    font-family: poppins;
+    font-weight: 700;
+}
+

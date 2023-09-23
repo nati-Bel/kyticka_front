@@ -1,25 +1,37 @@
 import "./outlet.scss";
-import APIservice from "../../services/APIservice";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 
 export const PhotosOutlet = () => {
-  const url = "http://127.0.0.1:8000/api/admin/photos";
-  let photos = APIservice(url);
+  const apiUrl = "http://127.0.0.1:8000/api/admin/photos";
+  const [photos, setPhotos] = useState([])
+
+  useEffect(() => {
+    loadPhotos();
+  }, []);
+
+  const loadPhotos = async () => {
+    try {
+      const response = await axios.get(apiUrl);
+      setPhotos(response.data);
+    } catch (error) {
+      console.error("Error al obtener las fotos:", error);
+    }
+  };
 
   const onDelete = async (id) => {
     console.log(id);
     try {
-      const response = await axios.delete(`${url}/${id}`);
+      const response = await axios.delete(`${apiUrl}/${id}`);
 
       if (response.status === 200) {
-        console.log("Exito");
-        location.reload();
+        await loadPhotos();
       } else {
-        console.error("Error al eliminar la galería");
+        console.error("Error al eliminar la foto");
       }
     } catch (error) {
-      console.error("Error al eliminar la galería:", error);
+      console.error("Error al eliminar la foto:", error);
     }
   };
 
@@ -27,7 +39,7 @@ export const PhotosOutlet = () => {
     <>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-gray-100">
-          {photos &&
+          {photos.data &&
             photos.data.map((item) => (
               <li
                 key={item.id}

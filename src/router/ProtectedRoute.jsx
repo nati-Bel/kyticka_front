@@ -10,12 +10,10 @@ export const ProtectedRoute = ({children}) =>{
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     useEffect(() => {
-      // Verificar el estado de inicio de sesión cuando el componente se monta
       const userIsLoggedIn = checkLoginStatus();
       setIsLoggedIn(userIsLoggedIn);
     }, []);
     
-
     if(!isLoggedIn){
             return navigateTo('/login')
     }

@@ -1,15 +1,14 @@
- import axios from "axios";
- import logo from "../../assets/logo.png"
+import axios from "axios";
+import logo from "../../assets/logo.png"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
  
-
-
  export const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigateTo = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -19,8 +18,10 @@ import { useState } from "react";
         loginData
       );
       const { status, data } = response;
+
       console.log("Response Status:", status);
       console.log("Response Data:", data);
+      
       const authToken = response.data.token;
       localStorage.setItem("authToken", authToken);
       navigateTo("/admin/dashboard");
