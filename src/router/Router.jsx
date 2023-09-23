@@ -3,8 +3,6 @@ import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, Login, Das
 import { Home, Gallery, Album, Contact } from "../pages/user";
 import { ProtectedRoute } from "./ProtectedRoute";
 
-
-
 const Router = () => {
     
     return (

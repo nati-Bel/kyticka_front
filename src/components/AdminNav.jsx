@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import APIservice from "../services/APIservice";
+import APIservice from "../helpers/APIservice";
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -75,28 +75,30 @@ const AdminNav = () => {
               className="text-base font-semibold leading-6 text-gray-900"
             >
               Slider
-            </a>            
-              <Link
-                to="/admin/dashboard/newphoto"
-                className="text-base font-semibold italic leading-6 text-gray-500"
-              >
-                Pridat fotku
-              </Link>
-              <Link
-                to="/admin/dashboard/newalbum"
-                className="text-base font-semibold italic leading-6 text-gray-500"
-              >
-                Pridat album
-              </Link>            
+            </a>
+            <Link
+              to="/admin/dashboard/newphoto"
+              className="text-base font-semibold italic leading-6 text-gray-500"
+            >
+              Pridat fotku
+            </Link>
+            <Link
+              to="/admin/dashboard/newalbum"
+              className="text-base font-semibold italic leading-6 text-gray-500"
+            >
+              Pridat album
+            </Link>
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            {isLoggedIn&&(
-            <button onClick={handleLogout}
-              className="text-base font-semibold leading-6 text-gray-900"
-            >
-              Odhlasit sa <span aria-hidden="true">&rarr;</span>
-            </button>)}
+            {isLoggedIn && (
+              <button
+                onClick={handleLogout}
+                className="text-base font-semibold leading-6 text-gray-900"
+              >
+                Odhlasit sa <span aria-hidden="true">&rarr;</span>
+              </button>
+            )}
           </div>
         </nav>
 
