@@ -1,0 +1,15 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.albumTitle {
+color:$mainBrown;
+font-size: 50px;
+text-align: center;
+}
+
+.albumCont{
+    @include flex($wrap:wrap, $gap:25px);
+    margin:20px;
+
+}
+

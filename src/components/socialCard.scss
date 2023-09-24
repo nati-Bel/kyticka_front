@@ -1,0 +1,17 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.socialContacts{
+    @include flex($justify:space-between, $gap:25px)
+}
+
+.socialLogo {
+    width:30px;
+}
+
+.socialLink {
+    color: $mainBrown;
+    font-size:18px;
+    font-family: poppins;
+    font-weight: bold;
+}
