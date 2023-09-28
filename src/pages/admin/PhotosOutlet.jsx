@@ -51,9 +51,9 @@ export const PhotosOutlet = () => {
                     src={item.url}
                     alt=""
                   />
-                  <p className="place-self-center italic text-brown-600">
+                  {item.gallery && <p className="place-self-center italic text-brown-600">
                     {item.gallery}
-                  </p>
+                  </p>}
                   <button className="listBtn">Upravit</button>
                   <button className="listBtn" onClick={() => onDelete(item.id)}>Vymazat</button>
                 </div>
