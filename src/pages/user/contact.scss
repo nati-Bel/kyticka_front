@@ -13,7 +13,7 @@
 }
 
 .contactCont{
-    @include flex($align:start, $justify:space-between, $wrap:wrap);
+    @include flex($align:flex-start, $justify:space-between, $wrap:wrap);
     padding:20px 9%;
     width:100%
 }
@@ -43,6 +43,22 @@
     @include flex($direction:column, $gap:20px, $align:flex-start);
     width:100%
     //background-color: $lightBrown;
+}
+.fbtnCont{
+    @include flex();
+    width:400px;
+}
+.formBtn {
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 3px 26px;
+    color:$mainBrown;
+    font-weight: 600;
+    transition: all 100ms ease-in-out;
+}
+
+.formBtn:hover{
+    background-color: $lightBrown !important;
 }
 
 .formUnit{
