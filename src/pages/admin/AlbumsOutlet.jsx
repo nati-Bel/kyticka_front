@@ -1,6 +1,7 @@
 import "./outlet.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const AlbumsOutlet = () => {
   const apiUrl = "http://127.0.0.1:8000/api/admin/galleries";
@@ -37,7 +38,7 @@ export const AlbumsOutlet = () => {
     <>
       <div className="listContainer flex align-center justify-center">
         <ul role="list" className="divide-y divide-brown-100">
-          {albums.data && 
+          {albums.data &&
             albums.data.map((album) => (
               <li
                 key={album.id}
@@ -55,8 +56,12 @@ export const AlbumsOutlet = () => {
                     </p>
                   </div>
                 </div>
-                <button className="listBtn">Upravit</button>
-                <button className="listBtn" onClick={() => onDelete(album.id)}>Vymazat</button>
+                <Link to="">
+                  <button className="listBtn">Upravit</button>
+                </Link>
+                <button className="listBtn" onClick={() => onDelete(album.id)}>
+                  Vymazat
+                </button>
               </li>
             ))}
         </ul>
