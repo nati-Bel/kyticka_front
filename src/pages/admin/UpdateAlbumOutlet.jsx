@@ -4,10 +4,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import fileUpload from "../../helpers/fileUpload";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import { useParams } from "react-router-dom";
+import APIservice from "../../helpers/APIservice";
 
 
 export const UpdateAlbumOutlet = () => {
-  const [title, setTitle] = useState("");
+  const { id } = useParams();
+  console.log(id);
+
+  const url = `http://127.0.0.1:8000/api/admin/galleries/${id}`;
+  const album = APIservice(url);
+  console.log(album)
+
+  const [title, setTitle] = useState(album && album.data ? album.data.title : "");
   const [selectedFile, setSelectedFile] = useState(null);
 
   const { isLoading, error, data, sendRequest } = useHttp();
@@ -27,8 +36,8 @@ export const UpdateAlbumOutlet = () => {
         const uploadedImageUrl = await fileUpload(selectedFile);
 
         const response = await sendRequest(
-          "http://127.0.0.1:8000/api/admin/galleries",
-          "POST",
+          `http://127.0.0.1:8000/api/admin/galleries/${id}`,
+          "PUT",
           {
             title,
             cover_url: uploadedImageUrl,
@@ -50,7 +59,7 @@ export const UpdateAlbumOutlet = () => {
 
   return (
     <>
-    <h2 className="formTitle">Vytvor novy album</h2>
+    <h2 className="formTitle">Uprav album</h2>
       <div className="flex justify-center">
         <form className="form" onSubmit={handleSubmit}>
           <div className="border-b border-gray-900/10 pb-12">

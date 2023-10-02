@@ -34,7 +34,7 @@ const Router = () => {
                 path="/admin/dashboard/newalbum"
                 element={<FormAlbumOutlet />}
               ></Route>
-              <Route path="/admin/dashboard/updatealbum/:id" element={<UpdateAlbumOutlet.jsx />}></Route>
+              <Route path="/admin/dashboard/updatealbum/:id" element={<UpdateAlbumOutlet/>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

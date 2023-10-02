@@ -56,7 +56,7 @@ export const AlbumsOutlet = () => {
                     </p>
                   </div>
                 </div>
-                <Link to="">
+                <Link to={`/admin/dashboard/updatealbum/${album.id}?title=${album.title}`}>
                   <button className="listBtn">Upravit</button>
                 </Link>
                 <button className="listBtn" onClick={() => onDelete(album.id)}>
