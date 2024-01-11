@@ -1,6 +1,7 @@
 import "./outlet.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {AlbumCardAdmin} from "../../components/"
 import { Link } from "react-router-dom";
 
 export const AlbumsOutlet = () => {
@@ -36,35 +37,34 @@ export const AlbumsOutlet = () => {
 
   return (
     <>
-      <div className="listContainer flex align-center justify-center">
-        <ul role="list" className="divide-y divide-brown-100">
-          {albums.data &&
-            albums.data.map((album) => (
-              <li
-                key={album.id}
-                className="flex justify-between gap-x-6 py-5 flex-wrap"
-              >
-                <div className="flex min-w-0 gap-x-9">
-                  <img
-                    className="h-12 w-12 flex-none bg-gray-50"
-                    src={album.cover_url}
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="italic leading-6 text-brown-900">
-                      {album.title}
-                    </p>
-                  </div>
-                </div>
-                <Link to={`/admin/dashboard/updatealbum/${album.id}?title=${album.title}`}>
+      <div>
+        <section className="gBackground flex flex-col items-center">
+          <h2 className="pgTitle">Galéria</h2>
+          <button className="listBtn ">
+            <Link to="/admin/dashboard/newalbum" className="">
+              + Pridať album
+            </Link>
+          </button>
+          <div className="gContainer">
+            {albums.data &&
+              albums.data.map((album) => {
+                return (
+                  <AlbumCardAdmin
+                    key={album.id}
+                    id={album.id}
+                    {...album}
+                  ></AlbumCardAdmin>
+                );
+              })}
+          </div>
+        </section>
+
+        {/* <Link to={`/admin/dashboard/updatealbum/${album.id}?title=${album.title}`}>
                   <button className="listBtn">Upravit</button>
                 </Link>
                 <button className="listBtn" onClick={() => onDelete(album.id)}>
                   Vymazat
-                </button>
-              </li>
-            ))}
-        </ul>
+                </button> */}
       </div>
     </>
   );
