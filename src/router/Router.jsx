@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, Login, Dashboard } from "../pages/admin";
+import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, UpdateAlbumOutlet, Login, Dashboard } from "../pages/admin";
 import { Home, Gallery, Album, Contact } from "../pages/user";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -34,6 +34,7 @@ const Router = () => {
                 path="/admin/dashboard/newalbum"
                 element={<FormAlbumOutlet />}
               ></Route>
+              <Route path="/admin/dashboard/updatealbum/:id" element={<UpdateAlbumOutlet/>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

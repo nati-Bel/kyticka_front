@@ -54,8 +54,8 @@ export const PhotosOutlet = () => {
                   {item.gallery && <p className="place-self-center italic text-brown-600">
                     {item.gallery}
                   </p>}
-                  <button className="listBtn">Upravit</button>
-                  <button className="listBtn" onClick={() => onDelete(item.id)}>Vymazat</button>
+                  <button className="listBtn">Upraviť</button>
+                  <button className="listBtn" onClick={() => onDelete(item.id)}>Vymazať</button>
                 </div>
               </li>
             ))}

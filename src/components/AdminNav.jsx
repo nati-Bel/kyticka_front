@@ -36,7 +36,7 @@ const AdminNav = () => {
 
   return (
     <>
-      <header className="bg-gray-200">
+      <header className="bg-amber-100 shadow-md">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -62,31 +62,31 @@ const AdminNav = () => {
               to="/admin/dashboard/"
               className="text-base font-semibold leading-6 text-gray-900"
             >
-              Vsetky Fotky
+              Fotky
             </Link>
             <Link
               to="/admin/dashboard/albums"
               className="text-base font-semibold leading-6 text-gray-900"
             >
-              Moje Galerie
+              Albumy
             </Link>
             <a
               href="http://localhost:5173/admin/dashboard/galerie"
               className="text-base font-semibold leading-6 text-gray-900"
             >
-              Slider
+              Prezentácia
             </a>
             <Link
               to="/admin/dashboard/newphoto"
               className="text-base font-semibold italic leading-6 text-gray-500"
             >
-              Pridat fotku
+              Pridať fotku
             </Link>
             <Link
               to="/admin/dashboard/newalbum"
               className="text-base font-semibold italic leading-6 text-gray-500"
             >
-              Pridat album
+              Pridať album
             </Link>
           </Popover.Group>
 
@@ -96,7 +96,7 @@ const AdminNav = () => {
                 onClick={handleLogout}
                 className="text-base font-semibold leading-6 text-gray-900"
               >
-                Odhlasit sa <span aria-hidden="true">&rarr;</span>
+                Odhlásiť sa <span aria-hidden="true">&rarr;</span>
               </button>
             )}
           </div>
@@ -131,36 +131,36 @@ const AdminNav = () => {
                     to="admin/dashboard/"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Moje fotky
+                    Fotky
                   </Link>
                   <Link
                     to="admin/dashboard/albums"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Moje galerie
+                    Albumy
                   </Link>
                   <Link
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Slider
+                    Prezentácia
                   </Link>
                 </div>
                 <Link
                   to="/admin/dashboard/newphoto"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Pridat fotku
+                  Pridať fotku
                 </Link>
                 <Link
                   to="/admin/dashboard/newalbum"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Pridat galeriu
+                  Pridat album
                 </Link>
                 <div className="py-6">
                   <a className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Odhlasit sa
+                    Odhlásiť sa
                   </a>
                 </div>
               </div>

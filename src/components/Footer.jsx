@@ -12,7 +12,7 @@ export const Footer = () => {
             <ul className="footerList">
                 <li className="copyCont">
                     <img className="copyIcon" src={copy}></img>
-                    <span className="copyTitle">KYTICKA</span>
+                    <span className="copyTitle">KYTIČKA</span>
                 </li>
                 <li>Hviezdoslavova 130, STUPAVA | 0912 273 517 | kystudio@gmail.com</li>
                 <li className="fsocialCont">

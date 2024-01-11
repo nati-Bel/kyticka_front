@@ -14,7 +14,7 @@ export const Album = () => {
   return (
     <>
       <NavbarDefault></NavbarDefault>
-      <h2 className="albumTitle">{album && album.data.title}</h2>
+      <h2 className="albumTitle mt-3">{album && album.data.title}</h2>
       <section className="albumCont">
         {album &&
           album.data.photos.map((photo, index) => {

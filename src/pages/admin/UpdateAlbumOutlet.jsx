@@ -4,10 +4,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import fileUpload from "../../helpers/fileUpload";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import { useParams } from "react-router-dom";
+import APIservice from "../../helpers/APIservice";
 
 
-export const FormAlbumOutlet = () => {
-  const [title, setTitle] = useState("");
+export const UpdateAlbumOutlet = () => {
+  const { id } = useParams();
+  console.log(id);
+
+  const url = `http://127.0.0.1:8000/api/admin/galleries/${id}`;
+  const album = APIservice(url);
+  console.log(album)
+
+  const [title, setTitle] = useState(album && album.data ? album.data.title : "");
   const [selectedFile, setSelectedFile] = useState(null);
 
   const { isLoading, error, data, sendRequest } = useHttp();
@@ -27,8 +36,8 @@ export const FormAlbumOutlet = () => {
         const uploadedImageUrl = await fileUpload(selectedFile);
 
         const response = await sendRequest(
-          "http://127.0.0.1:8000/api/admin/galleries",
-          "POST",
+          `http://127.0.0.1:8000/api/admin/galleries/${id}`,
+          "PUT",
           {
             title,
             cover_url: uploadedImageUrl,
@@ -50,13 +59,13 @@ export const FormAlbumOutlet = () => {
 
   return (
     <>
-    <h2 className="formTitle mt-7">Pridaj nový album</h2>
+    <h2 className="formTitle">Uprav album</h2>
       <div className="flex justify-center">
         <form className="form" onSubmit={handleSubmit}>
           <div className="border-b border-gray-900/10 pb-12">
             <div className="flex-col gap-x-3">
               <label htmlFor="cover-photo" className="label">
-                Titulná fotka
+                Titulna fotka
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
@@ -78,7 +87,7 @@ export const FormAlbumOutlet = () => {
 
               <div className="mt-10">
                 <div className="col-span-full">
-                  <label className="label">Názov albumu</label>
+                  <label className="label">Nazov albumu</label>
                   <div className="mt-2">
                     <input
                       type="text"
@@ -97,7 +106,7 @@ export const FormAlbumOutlet = () => {
               type="submit"
               className="my-3 flex w-full justify-center rounded-md bg-brown-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
             >
-              Pridaj album
+              Vytvor album
             </button>
           </div>
         </form>
