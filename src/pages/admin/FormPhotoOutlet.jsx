@@ -67,7 +67,7 @@ export const FormPhotoOutlet = () => {
 
   return (
     <>
-      <h2 className="formTitle">Pridaj novu fotku</h2>
+      <h2 className="formTitle mt-7">Pridaj novú fotku</h2>
       <div className="flex justify-center">
         <form className="form" onSubmit={handleSubmit}>
           <div className="border-b border-gray-900/10 pb-12">
@@ -98,7 +98,7 @@ export const FormPhotoOutlet = () => {
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="gallery_id" className="label">
-                  Galeria
+                  Album
                 </label>
                 <div className="mt-2">
                   <select
@@ -121,7 +121,7 @@ export const FormPhotoOutlet = () => {
             </div>
 
             <div className="mt-10 space-y-10">
-              <legend className="label">Slider</legend>
+              <legend className="label">Prezentácia</legend>
 
               <div className="relative flex gap-x-3">
                 <input
@@ -131,7 +131,7 @@ export const FormPhotoOutlet = () => {
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                 />
                 <label htmlFor="slider" className="font-medium text-brown-900">
-                  Include photo in the slider
+                  Pridaj fotku do prezentácie
                 </label>
               </div>
             </div>
@@ -141,7 +141,7 @@ export const FormPhotoOutlet = () => {
             type="submit"
             className="my-3 flex w-full justify-center rounded-md bg-brown-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
           >
-            Nahraj fotku
+            Pridaj fotku
           </button>
         </form>
         {isLoading && <p>Loading ...</p>}

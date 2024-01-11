@@ -4,8 +4,10 @@ import { Outlet } from "react-router-dom";
 export const Dashboard = () => {
   return (
     <>
-    <AdminNav></AdminNav>
-    <Outlet />
+      <section className="adminBody">
+        <AdminNav></AdminNav>
+        <Outlet />
+      </section>
     </>
   );
 };

@@ -50,13 +50,13 @@ export const FormAlbumOutlet = () => {
 
   return (
     <>
-    <h2 className="formTitle">Vytvor novy album</h2>
+    <h2 className="formTitle mt-7">Pridaj nový album</h2>
       <div className="flex justify-center">
         <form className="form" onSubmit={handleSubmit}>
           <div className="border-b border-gray-900/10 pb-12">
             <div className="flex-col gap-x-3">
               <label htmlFor="cover-photo" className="label">
-                Titulna fotka
+                Titulná fotka
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
@@ -78,7 +78,7 @@ export const FormAlbumOutlet = () => {
 
               <div className="mt-10">
                 <div className="col-span-full">
-                  <label className="label">Nazov albumu</label>
+                  <label className="label">Názov albumu</label>
                   <div className="mt-2">
                     <input
                       type="text"
@@ -97,7 +97,7 @@ export const FormAlbumOutlet = () => {
               type="submit"
               className="my-3 flex w-full justify-center rounded-md bg-brown-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brown-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
             >
-              Vytvor album
+              Pridaj album
             </button>
           </div>
         </form>

@@ -1,10 +1,6 @@
 import React from "react";
 import './nav.scss'
-import {
-  Navbar,
-  Collapse,
-  IconButton,
-} from "@material-tailwind/react";
+import {Navbar, Collapse,IconButton,} from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
 
@@ -24,7 +20,7 @@ export function NavbarDefault() {
         <li className="navItem">Domov</li>
       </Link>
       <Link to="/galeria">
-        <li className="navItem">Galeria</li>
+        <li className="navItem">Galéria</li>
       </Link>
       <Link to="/kontakt">
         <li className="navItem">Kontakt</li>
