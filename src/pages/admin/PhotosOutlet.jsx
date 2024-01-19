@@ -15,6 +15,7 @@ export const PhotosOutlet = () => {
     try {
       const response = await axios.get(apiUrl);
       setPhotos(response.data);
+      console.log(photos)
     } catch (error) {
       console.error("Error al obtener las fotos:", error);
     }
@@ -37,30 +38,44 @@ export const PhotosOutlet = () => {
 
   return (
     <>
-      <div className="listContainer flex align-center justify-center">
-        <ul role="list" className="divide-y divide-gray-100">
+      <section className="gBackground flex flex-col items-center">
+        <h2 className="pgTitle">Fotky</h2>
+        <button className="listBtn">+ Pridať fotku</button>
+        <div className="gContainer">
           {photos.data &&
-            photos.data.map((item) => (
-              <li
-                key={item.id}
-                className="flex justify-between gap-x-6 py-5 flex-wrap"
-              >
-                <div className="flex min-w-0 gap-x-9">
-                  <img
-                    className="h-12 w-12 flex-none bg-brown-50"
-                    src={item.url}
-                    alt=""
-                  />
-                  {item.gallery && <p className="place-self-center italic text-brown-600">
-                    {item.gallery}
-                  </p>}
-                  <button className="listBtn">Upraviť</button>
-                  <button className="listBtn" onClick={() => onDelete(item.id)}>Vymazať</button>
+            photos.data.map((item) => {
+              return (
+                <div
+                  className="photoCardContainer"
+                  key={item.id}
+                  id={item.id}
+                  {...item}
+                >
+                  {item.gallery && (
+                    <div className="flex justify-start gap-4 ">
+                      <p className="place-self-center italic text-brown-600">
+                        {item.gallery}
+                      </p>
+                      <button type="button" className="listBtn">
+                        Zmeniť album
+                      </button>
+                    </div>
+                  )}
+                  <img src={item.url} className="aCardImg object-cover"></img>
+                  <div className="flex justify-start gap-4 ">
+                    <button
+                      type="button"
+                      className="listBtn"
+                      onClick={() => onDelete(item.id)}
+                    >
+                      Vymazať
+                    </button>
+                  </div>
                 </div>
-              </li>
-            ))}
-        </ul>
-      </div>
+              );
+            })}
+        </div>
+      </section>
     </>
   );
 };

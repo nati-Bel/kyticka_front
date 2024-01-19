@@ -13,11 +13,21 @@
 }
 
 .listBtn {
+    width:fit-content;
     font-size: 16px;
-    border-radius: 14px;
-    padding: 1px 12px;
-    color:$mainBrown;
     font-weight: 700;
+    padding: 4px 12px;
+    color:$mainBrown;
+    border-radius: 8px;
+    border: 1px solid $mainBrown;
+    
+    
+}
+
+.listBtn:hover {
+    color:white;
+    background-color: $mainBrown;
+    transition: all 100ms ease-in-out;
 }
 
 
@@ -35,4 +45,16 @@
     font-family: poppins;
     font-weight: 700;
 }
+
+.photoCardContainer{
+    @include flex($direction:column, $justify:space-around, $gap:10px);
+    width:270px;
+    height:300px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color:#ffffff;
+    
+}
+
+
 

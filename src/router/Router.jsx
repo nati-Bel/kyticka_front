@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, UpdateAlbumOutlet, Login, Dashboard } from "../pages/admin";
+import {PhotosOutlet, FormAlbumOutlet, AlbumsOutlet, FormPhotoOutlet, UpdateAlbumOutlet, Login, Dashboard, AlbumOutlet } from "../pages/admin";
 import { Home, Gallery, Album, Contact } from "../pages/user";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -19,7 +19,8 @@ const Router = () => {
               element={
                 <ProtectedRoute>
                   <Dashboard />
-                </ProtectedRoute>}
+                </ProtectedRoute>
+              }
             >
               <Route path="/admin/dashboard" element={<PhotosOutlet />}></Route>
               <Route
@@ -34,7 +35,14 @@ const Router = () => {
                 path="/admin/dashboard/newalbum"
                 element={<FormAlbumOutlet />}
               ></Route>
-              <Route path="/admin/dashboard/updatealbum/:id" element={<UpdateAlbumOutlet/>}></Route>
+              <Route
+                path="/admin/dashboard/album/:id"
+                element={<AlbumOutlet />}
+              ></Route>
+              <Route
+                path="/admin/dashboard/updatealbum/:id"
+                element={<UpdateAlbumOutlet />}
+              ></Route>
             </Route>
           </Routes>
         </BrowserRouter>
