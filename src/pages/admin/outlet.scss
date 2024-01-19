@@ -46,3 +46,15 @@
     font-weight: 700;
 }
 
+.photoCardContainer{
+    @include flex($direction:column, $justify:space-around, $gap:10px);
+    width:270px;
+    height:300px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color:#ffffff;
+    
+}
+
+
+

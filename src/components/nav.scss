@@ -31,7 +31,13 @@
     font-weight: 400;
 }
 
-.navItem:hover{
+.navAdminItem{
+    color: $mainBrown;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.navItem:hover, .navAdminItem:hover{
     font-weight: 600;
     cursor: pointer;
     
@@ -53,5 +59,9 @@
 
     .navItem{
     font-size: 17px;
+    }
+
+    .navAdminItem{
+    font-size: 12px;
     }
 }

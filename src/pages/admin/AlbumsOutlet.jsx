@@ -21,19 +21,19 @@ export const AlbumsOutlet = () => {
     }
   };
 
-  const onDelete = async (id) => {
-    try {
-      const response = await axios.delete(`${apiUrl}/${id}`);
+  // const onDelete = async (id) => {
+  //   try {
+  //     const response = await axios.delete(`${apiUrl}/${id}`);
 
-      if (response.status === 200) {
-        await loadAlbums();
-      } else {
-        console.error("Error al eliminar la galería");
-      }
-    } catch (error) {
-      console.error("Error al eliminar la galería:", error);
-    }
-  };
+  //     if (response.status === 200) {
+  //       await loadAlbums();
+  //     } else {
+  //       console.error("Error al eliminar la galería");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error al eliminar la galería:", error);
+  //   }
+  // };
 
   return (
     <>
