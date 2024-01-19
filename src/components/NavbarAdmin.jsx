@@ -7,7 +7,7 @@ import "./nav.scss";
 import { Navbar, Collapse, IconButton } from "@material-tailwind/react";
 
 
-export default function AdminNav() {
+export const NavbarAdmin = () => {
   const [openNav, setOpenNav] = React.useState(false);
 
   const url = "http://127.0.0.1:8000/api/admin/galleries";
