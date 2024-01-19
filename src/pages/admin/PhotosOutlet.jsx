@@ -1,6 +1,7 @@
 import "./outlet.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 export const PhotosOutlet = () => {
@@ -22,7 +23,6 @@ export const PhotosOutlet = () => {
   };
 
   const onDelete = async (id) => {
-    console.log(id);
     try {
       const response = await axios.delete(`${apiUrl}/${id}`);
 
@@ -40,7 +40,9 @@ export const PhotosOutlet = () => {
     <>
       <section className="gBackground flex flex-col items-center">
         <h2 className="pgTitle">Fotky</h2>
-        <button className="listBtn">+ Pridať fotku</button>
+        <Link to="/admin/dashboard/newphoto">
+          <button className="listBtn">+ Pridať fotku</button>
+        </Link>
         <div className="gContainer">
           {photos.data &&
             photos.data.map((item) => {
