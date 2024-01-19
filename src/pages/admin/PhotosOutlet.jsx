@@ -53,11 +53,15 @@ export const PhotosOutlet = () => {
                 >
                   {item.gallery && (
                     <div className="flex justify-start gap-4 ">
-                      <p className="place-self-center italic text-brown-600">
-                        {item.gallery}
+                      <p className="place-self-center font-semibold text-lg text-brown-900">
+                        [ {item.gallery} ]
                       </p>
-                      <button type="button" className="listBtn">
+                      <button
+                        type="button"
+                        className="text-sm leading-6 italic text-brown-600"
+                      >
                         Zmeniť album
+                        <span aria-hidden="true">&rarr;</span>
                       </button>
                     </div>
                   )}

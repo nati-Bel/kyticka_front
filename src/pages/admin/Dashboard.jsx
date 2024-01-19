@@ -1,11 +1,11 @@
-import AdminNav from "../../components/AdminNav";
+import {NavbarAdmin} from "../../components";
 import { Outlet } from "react-router-dom";
 
 export const Dashboard = () => {
   return (
     <>
       <section className="">
-        <AdminNav></AdminNav>
+        <NavbarAdmin></NavbarAdmin>
         <Outlet />
       </section>
     </>

@@ -4,7 +4,7 @@ import {Navbar, Collapse,IconButton,} from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
 
-export function NavbarDefault() {
+export const NavbarDefault = () => {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
